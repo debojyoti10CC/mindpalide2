@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Plans - Stress-Free Living in VR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-indigo-900 text-white py-16 px-6">
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindPal Navigation</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111827;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #1f2937;
+            border-bottom: 1px solid #374151;
+            padding: 0.2rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            color: #818cf8;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo a:hover {
+            color: #6366f1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+        }
+
+        .nav-links a:hover {
+            color: #818cf8;
+        }
+
+        .nav-links .btn-primary {
+            background-color: #4f46e5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links .btn-primary:hover {
+            background-color: #4338ca;
+            color: white;
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Mobile menu */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1f2937;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-top: 1px solid #374151;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">MindPal</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="product.html">Product</a>
+                <a href="mha.html">Take MHA Screening</a>
+                <a href="premium.html" class="btn-primary">Premium</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+    <!-- Header -->
+    <div class="max-w-4xl mx-auto text-center mb-12">
+        <svg class="w-14 h-14 text-blue-400 mx-auto mb-6 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v3m0 12v3m6.364-14.364l-2.121 2.121M6.757 17.243l-2.121 2.121M21 12h-3m-12 0H3m14.364 6.364l-2.121-2.121M6.757 6.757L4.636 4.636"/>
+        </svg>
+        <h1 class="text-5xl font-extrabold mb-4 text-white drop-shadow-md">
+            Experience Stress-Free Living in VR
+        </h1>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+            Unlock the power of Virtual Reality to reduce stress, enhance focus, and achieve deep relaxation. Choose the plan that suits your wellness journey.
+        </p>
+    </div>
+
+    <!-- Plans -->
+    <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-10">
+            
+            <!-- Monthly Premium -->
+            <div class="bg-gray-950 border border-gray-800 shadow-md shadow-gray-700/20 overflow-hidden rounded-xl">
+                <div class="text-center p-8">
+                    <h2 class="text-3xl font-bold text-white mb-3">Monthly Premium</h2>
+                    <p class="text-gray-400 mb-4 text-lg">Explore VR stress relief and wellness programs</p>
+                    <div class="mb-6">
+                        <span class="text-6xl font-extrabold text-blue-400">₹499</span>
+                        <span class="text-gray-400 ml-2 text-lg">per month</span>
+                    </div>
+                    <button class="w-full py-6 text-lg font-semibold bg-gray-800 hover:bg-gray-700 transition-transform transform hover:scale-105 active:scale-95 shadow-md shadow-gray-700/40 rounded-lg">
+                        Start My Journey
+                    </button>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-5 mt-6">
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Access to 4K VR relaxation experiences
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Advanced MHA stress screening
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Custom therapy & guided meditation
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Priority support & AI wellness coach
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Ad-free immersive journey
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Download for offline tranquility
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Annual Premium (Recommended) -->
+            <div class="bg-gray-950 border border-blue-500 shadow-lg shadow-blue-500/30 overflow-hidden rounded-xl">
+                <div class="bg-blue-500 text-white text-center text-sm py-2 font-bold tracking-wider uppercase">
+                    Best Value ⭐
+                </div>
+                <div class="text-center p-8">
+                    <h2 class="text-3xl font-bold text-white mb-3">Annual Premium</h2>
+                    <p class="text-gray-400 mb-4 text-lg">Best value - 2 months free + exclusive perks</p>
+                    <div class="mb-6">
+                        <span class="text-6xl font-extrabold text-blue-400">₹4,999</span>
+                        <span class="text-gray-400 ml-2 text-lg">per year</span>
+                    </div>
+                    <button class="w-full py-6 text-lg font-semibold bg-blue-600 hover:bg-blue-700 transition-transform transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/50 rounded-lg">
+                        Start My Journey
+                    </button>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-5 mt-6">
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Everything in Monthly Premium
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ 2 months free (₹998 savings)
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Early access to new VR therapies
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Exclusive deep relaxation sessions
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Premium user badge & recognition
+                        </li>
+                        <li class="flex items-center text-lg text-gray-300">
+                            ✅ Share wellness with family access
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Security & Assurance -->
+        <div class="mt-16 text-center">
+            <div class="bg-gray-900 inline-block px-10 py-6 rounded-full shadow-md shadow-gray-800/40">
+                <p class="text-gray-300 text-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 4v10m-6-6h12"/>
+                    </svg>
+                    Secure Payment • Cancel Anytime • 30-Day Money-Back Guarantee
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+<footer class="footer">
+    <div class="footer-container">
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="mha.html">Tests</a></li>
+          <li><a href="#">Premium</a></li>
+          <li><a href="#">Accounts</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Information -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mindpal2025@gmail.com">mindpal2025@gmail.com</a></li>
+          <li><strong>Address: </strong> Ashram Building, GN-34/2, Sector – V, Saltlake Electronics Complex
+            Kolkata – 700 091, West Bengal, India</li>
+        </ul>
+      </div>
+  
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <a href="https://www.facebook.com/share/18nk7hRc8k/" target="_blank">
+          <img src="https://img.icons8.com/color/50/000000/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://x.com/mindpal2025" target="_blank">
+          <img src="https://img.icons8.com/color/50/000000/twitter.png" alt="Twitter">
+      </a>
+      <a href="https://www.instagram.com/mindpal2025?igsh=MWU0OHd4cDQ5dWp4dw==" target="_blank">
+          <img src="https://img.icons8.com/color/50/000000/instagram-new.png" alt="Instagram">
+      </a>
+      <a href="https://www.linkedin.com/company/mindpal1/" target="_blank">
+          <img src="https://img.icons8.com/color/50/000000/linkedin.png" alt="LinkedIn">
+      </a>
+      
+      </div>
+  
+      <!-- Newsletter Subscription -->
+      <div class="footer-section">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Copyright Notice -->
+    
+  </footer>
+  
+  <style>
+    /* Footer Styling */
+    .footer {
+      background-color: #1a1a1a;
+      width: 100%;
+      color: #ecf0f1;
+      padding: 40px 20px;
+      margin-top: 60px;
+      
+    }
+  
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+  
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 20px;
+    }
+  
+    .footer-section h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #fefff6;
+    }
+  
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+  
+    .footer-section ul li a {
+      color: #ecf0f1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+  
+    .footer-section ul li a:hover {
+      color: #3498db;
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+  
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+    }
+  
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+  
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+    }
+  
+    .newsletter-form input {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      flex: 1;
+    }
+  
+    .newsletter-form button {
+      background-color: #3498db;
+      border: none;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .newsletter-form button:hover {
+      background-color: #2980b9;
+    }
+  
+    .footer-bottom {
+        text-align: center;
+                  margin-top: 20px;
+                  padding-top: 20px;
+                  border-top: 1px solid #444;
+                  font-size: 14px;
+                  color: #bdc3c7;
+    }
+  </style>
+  </body>
+</html>

@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Width Navigation - Dark Mode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #000;
+            border-bottom: 1px solid #27272a;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .search-box {
+            position: relative;
+            width: 18rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            background-color: #09090b;
+            border: 1px solid #27272a;
+            border-radius: 9999px;
+            color: #d4d4d8;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #3b82f6;
+            background-color: #18181b;
+        }
+
+        .search-box input::placeholder {
+            color: #52525b;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #52525b;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-icon:hover {
+            color: #3b82f6;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: #3b82f6;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .login-btn {
+            padding: 0.5rem 1.25rem;
+            background-color: transparent;
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #18181b;
+            transform: translateY(-2px);
+        }
+
+        .signup-btn {
+            padding: 0.5rem 1.25rem;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+        }
+
+        .signup-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #a1a1aa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .search-box {
+                width: 14rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-left {
+                gap: 1rem;
+            }
+
+            .search-box,
+            .nav-menu,
+            .auth-buttons {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-right.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #000;
+                padding: 1rem;
+                border-bottom: 1px solid #27272a;
+            }
+
+            .nav-right.active .nav-menu {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin: 1rem 0;
+            }
+
+            .nav-right.active .auth-buttons {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 0.5rem;
+            }
+
+            .nav-right.active .auth-buttons button {
+                width: 100%;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="logo">MindPal</a>
+                <div class="search-box">
+                    <input type="text" placeholder="Search wellness plans...">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <div class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="product.html">Products</a>
+                    <a href="mha.html">Take MHA Screening</a>
+                    <a href="oil.html" class="btn-primary">Resources</a>
+                </div>
+                
+            </div>
+
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navRight = document.querySelector('.nav-right');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navRight.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Experience Store - Dark Mode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #111111;
+            color: #e0e0e0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a1a1a;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 40px;
+            color: #3498db;
+        }
+        
+        .search-box {
+            position: relative;
+            width: 300px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #333;
+            border-radius: 20px;
+            outline: none;
+            background-color: #222;
+            color: #e0e0e0;
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888;
+        }
+        
+        .nav-auth {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .signup-btn, .login-btn {
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .signup-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+        }
+        
+        .signup-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .login-btn {
+            background-color: #222;
+            color: #3498db;
+            border: 1px solid #3498db;
+        }
+        
+        .login-btn:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .sidebar {
+            width: 220px;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        
+        .menu-title {
+            color: #888;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            color: #3498db;
+            margin-bottom: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            padding: 8px 10px;
+            border-radius: 4px;
+        }
+        
+        .menu-item:hover {
+            background-color: #222;
+            transform: translateX(5px);
+        }
+        
+        .menu-item i {
+            margin-right: 10px;
+        }
+        
+        .main-content {
+            flex: 1;
+        }
+        
+        .products-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        
+        .product-image {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-label {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(52, 152, 219, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .product-details {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+        
+        .product-description {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 15px;
+            height: 60px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .original-price {
+            margin-left: 10px;
+            text-decoration: line-through;
+            color: #777;
+        }
+        
+        .discount {
+            margin-left: auto;
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #2ecc71;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .view-details-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #2c2c2c;
+            color: #3498db;
+            text-align: center;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .view-details-btn:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: #222;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            animation: modalAppear 0.3s;
+        }
+        
+        @keyframes modalAppear {
+            from {opacity: 0; transform: translateY(-30px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #aaa;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .close-modal:hover {
+            color: white;
+        }
+        
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .buy-btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .buy-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transform: translateX(150%);
+            transition: transform 0.3s ease-out;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .feature-list {
+            list-style-type: none;
+            margin: 15px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            color: #2ecc71;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-title">CATEGORIES</div>
+            <a href="#" class="menu-item">
+                <i>🎮</i> VR Headsets
+            </a>
+            <a href="#" class="menu-item">
+                <i>🧠</i> Wellness Products
+            </a>
+            <a href="#" class="menu-item">
+                <i>🎧</i> Accessories
+            </a>
+            <a href="#" class="menu-item">
+                <i>📦</i> Bundles
+            </a>
+        </div>
+        
+        <div class="main-content">
+            <h1 class="products-title">Immersive VR Products</h1>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Product cards will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for product details -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" class="modal-image" src="" alt="Product image">
+                <p id="modalDescription"></p>
+                <h3 style="margin-top: 20px;">Includes:</h3>
+                <ul class="feature-list" id="modalFeatures">
+                    <!-- Features will be added dynamically -->
+                </ul>
+                <p style="margin-top: 20px;">
+                    <span id="modalCurrentPrice" style="font-size: 24px; font-weight: bold; color: #3498db;"></span>
+                    <span id="modalOriginalPrice" style="text-decoration: line-through; color: #777; margin-left: 10px;"></span>
+                    <span id="modalDiscount" style="background-color: rgba(40, 167, 69, 0.2); color: #2ecc71; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 10px;"></span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <div>Experience next-level reality!</div>
+                <button class="buy-btn" id="buyButton">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        Product added to cart! Continue shopping or proceed to checkout.
+    </div>
+
+    <script>
+        // Product data - your VR products with specific pricing
+        const productsData = [
+            {
+                id: 1,
+                title: "VR Headset Base Package",
+                description: "Step into virtual worlds with our premium VR headset. Immersive visuals, comfortable design, and seamless movement tracking for an unforgettable experience.",
+                image: "1.png",
+                currentPrice: "₹2,499",
+                originalPrice: "₹2,999",
+                discount: "17% off",
+                label: "BASIC",
+                features: [
+                    "Premium VR headset with 4K resolution",
+                    "Comfortable ergonomic design",
+                    "3D spatial audio system",
+                    "Motion controllers included",
+                    "10+ free VR experiences",
+                    "1-year warranty"
+                ]
+            },
+            {
+                id: 2,
+                title: "VR Headset + Essential Oils Bundle",
+                description: "Enhance your VR experience with our essential oils package. Combine visual immersion with aromatherapy for deeper relaxation and stress relief.",
+                image: "2.png",
+                currentPrice: "₹3,299",
+                originalPrice: "₹3,999",
+                discount: "18% off",
+                label: "PREMIUM",
+                features: [
+                    "Everything in the Base Package",
+                    "Set of 5 therapeutic essential oils",
+                    "Aromatherapy diffuser compatible with VR",
+                    "Stress-relief VR meditation app",
+                    "Extended 18-month warranty",
+                    "Priority customer support"
+                ]
+            },
+            {
+                id: 3,
+                title: "Complete Wellness VR Package",
+                description: "Our most comprehensive package combines cutting-edge VR technology with wellness monitoring. Includes stress detection band for personalized experiences.",
+                image: "3.png",
+                currentPrice: "₹4,499",
+                originalPrice: "₹5,499",
+                discount: "18% off",
+                label: "ULTIMATE",
+                features: [
+                    "Everything in the Premium Package",
+                    "Biometric stress detection band",
+                    "Advanced wellness tracking app",
+                    "Personalized stress-relief programs",
+                    "Complete set of 10 essential oils",
+                    "Exclusive VR wellness environments",
+                    "24/7 priority support",
+                    "2-year extended warranty"
+                ]
+            }
+        ];
+
+        // Function to render products
+        function renderProducts() {
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.innerHTML = '';
+            
+            productsData.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}">
+                        <div class="product-label">${product.label}</div>
+                    </div>
+                    <div class="product-details">
+                        <h2 class="product-title">${product.title}</h2>
+                        <p class="product-description">${product.description.substring(0, 80)}...</p>
+                        <div class="product-price">
+                            <span class="current-price">${product.currentPrice}</span>
+                            <span class="original-price">${product.originalPrice}</span>
+                            <span class="discount">${product.discount}</span>
+                        </div>
+                        <button class="view-details-btn" data-id="${product.id}">View Details</button>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            
+            // Modal functionality
+            const modal = document.getElementById('productModal');
+            const closeModal = document.getElementById('closeModal');
+            const buyButton = document.getElementById('buyButton');
+            const notification = document.getElementById('notification');
+            
+            // Add event listener for the View Details buttons
+            document.querySelectorAll('.view-details-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = parseInt(button.getAttribute('data-id'));
+                    const product = productsData.find(p => p.id === productId);
+                    
+                    if (product) {
+                        document.getElementById('modalTitle').textContent = product.title;
+                        document.getElementById('modalDescription').textContent = product.description;
+                        document.getElementById('modalCurrentPrice').textContent = product.currentPrice;
+                        document.getElementById('modalOriginalPrice').textContent = product.originalPrice;
+                        document.getElementById('modalDiscount').textContent = product.discount;
+                        document.getElementById('modalImage').src = product.image;
+                        
+                        // Add features
+                        const featuresList = document.getElementById('modalFeatures');
+                        featuresList.innerHTML = '';
+                        product.features.forEach(feature => {
+                            const li = document.createElement('li');
+                            li.textContent = feature;
+                            featuresList.appendChild(li);
+                        });
+                        
+                        // Show modal
+                        modal.style.display = 'flex';
+                    }
+                });
+            });
+            
+            // Close modal when clicking the X
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside the modal content
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Buy button functionality
+            buyButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+                notification.classList.add('show');
+                
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="mha.html">Tests</a></li>
+                <li><a href="premium.html">Premium</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:mindpal2025@gmail.com">mindpal2025@gmail.com</a></li>
+                <li><strong>Address:</strong> Ashram Building, GN-34/2, Sector – V, Saltlake Electronics Complex, Kolkata – 700 091, West Bengal, India</li>
+            </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/18nk7hRc8k/" target="_blank">
+                    <img src="https://img.icons8.com/color/50/000000/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://x.com/mindpal2025" target="_blank">
+                    <img src="https://img.icons8.com/color/50/000000/twitter.png" alt="Twitter">
+                </a>
+                <a href="https://www.instagram.com/mindpal2025?igsh=MWU0OHd4cDQ5dWp4dw==" target="_blank">
+                    <img src="https://img.icons8.com/color/50/000000/instagram-new.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/company/mindpal1/" target="_blank">
+                    <img src="https://img.icons8.com/color/50/000000/linkedin.png" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section">
+            <h3>Subscribe to Our Newsletter</h3>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    
+<style>
+/* Footer Styling */
+.footer {
+    background-color: #1a1a1a;
+    color: #ecf0f1;
+    padding: 40px 20px;
+    margin-top: 60px;
+    width: 100%;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+/* Footer Sections */
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #fefff6;
+}
+
+/* Links */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.footer-section ul li a {
+    color: #ffffff; /* Makes links white */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #cccccc; /* Light gray on hover for a subtle effect */
+}
+
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Newsletter */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.newsletter-form button {
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Copyright Section */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #bdc3c7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+    }
+}
+</style>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <title>Mental Health Assessment (MHA) Screening</title>
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindPal Navigation</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111827;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #1f2937;
+            border-bottom: 1px solid #374151;
+            padding: 0.2rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 500;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            color: #818cf8;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo a:hover {
+            color: #6366f1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+        }
+
+        .nav-links a:hover {
+            color: #818cf8;
+        }
+
+        .nav-links .btn-primary {
+            background-color: #4f46e5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links .btn-primary:hover {
+            background-color: #4338ca;
+            color: white;
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Mobile menu */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1f2937;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-top: 1px solid #374151;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">MindPal</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="product.html">Product</a>
+                <a href="mha.html">Take MHA Screening</a>
+                <a href="oil.html" class="btn-primary">Resources</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+<br><br><br>
+
+
+  <style>
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: black;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #061e3a;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .options label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+    .options input {
+      margin: 0;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #041427;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #071a2e;
+    }
+    .result {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .result.low {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .result.mild {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+    .result.moderate {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+    .result.high {
+      background-color: #f5b7b1;
+      color: #8b0000;
+    }
+    .result.severe {
+      background-color: #ffcccc;
+      color: #cc0000;
+    }
+  </style>
+  <!-- Include jsPDF library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Mental Health Assessment (MHA) Screening</h1>
+    <form id="mhaForm">
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <!-- Age Field -->
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter your age" required>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="question">
+        <label>1. In the past month, how often have you felt nervous or anxious without a specific reason?</label>
+        <div class="options">
+          <label><input type="radio" name="q1" value="0"> Never</label>
+          <label><input type="radio" name="q1" value="1"> Rarely</label>
+          <label><input type="radio" name="q1" value="2"> Sometimes</label>
+          <label><input type="radio" name="q1" value="3"> Often</label>
+          <label><input type="radio" name="q1" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <label>2. How frequently do you feel irritable or easily frustrated?</label>
+        <div class="options">
+          <label><input type="radio" name="q2" value="0"> Never</label>
+          <label><input type="radio" name="q2" value="1"> Rarely</label>
+          <label><input type="radio" name="q2" value="2"> Sometimes</label>
+          <label><input type="radio" name="q2" value="3"> Often</label>
+          <label><input type="radio" name="q2" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <label>3. Do you find it challenging to concentrate on tasks or stay focused?</label>
+        <div class="options">
+          <label><input type="radio" name="q3" value="0"> Not at all</label>
+          <label><input type="radio" name="q3" value="1"> Slightly</label>
+          <label><input type="radio" name="q3" value="2"> Moderately</label>
+          <label><input type="radio" name="q3" value="3"> Very much</label>
+          <label><input type="radio" name="q3" value="4"> Extremely</label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <label>4. How often do you feel fatigued or drained of energy, even without physical activity?</label>
+        <div class="options">
+          <label><input type="radio" name="q4" value="0"> Never</label>
+          <label><input type="radio" name="q4" value="1"> Rarely</label>
+          <label><input type="radio" name="q4" value="2"> Sometimes</label>
+          <label><input type="radio" name="q4" value="3"> Often</label>
+          <label><input type="radio" name="q4" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <label>5. Do you experience restlessness or find it hard to sit still due to anxiety or stress?</label>
+        <div class="options">
+          <label><input type="radio" name="q5" value="0"> Never</label>
+          <label><input type="radio" name="q5" value="1"> Rarely</label>
+          <label><input type="radio" name="q5" value="2"> Sometimes</label>
+          <label><input type="radio" name="q5" value="3"> Often</label>
+          <label><input type="radio" name="q5" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question">
+        <label>6. How frequently do you experience headaches, muscle tension, or body aches without a clear medical cause?</label>
+        <div class="options">
+          <label><input type="radio" name="q6" value="0"> Never</label>
+          <label><input type="radio" name="q6" value="1"> Rarely</label>
+          <label><input type="radio" name="q6" value="2"> Sometimes</label>
+          <label><input type="radio" name="q6" value="3"> Often</label>
+          <label><input type="radio" name="q6" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question">
+        <label>7. Do you find yourself overthinking or constantly worrying about different aspects of your life?</label>
+        <div class="options">
+          <label><input type="radio" name="q7" value="0"> Never</label>
+          <label><input type="radio" name="q7" value="1"> Rarely</label>
+          <label><input type="radio" name="q7" value="2"> Sometimes</label>
+          <label><input type="radio" name="q7" value="3"> Often</label>
+          <label><input type="radio" name="q7" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question">
+        <label>8. How often do you feel overwhelmed by your responsibilities or daily tasks?</label>
+        <div class="options">
+          <label><input type="radio" name="q8" value="0"> Never</label>
+          <label><input type="radio" name="q8" value="1"> Rarely</label>
+          <label><input type="radio" name="q8" value="2"> Sometimes</label>
+          <label><input type="radio" name="q8" value="3"> Often</label>
+          <label><input type="radio" name="q8" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question">
+        <label>9. Do you notice changes in your appetite or eating habits (eating too much or too little) due to stress?</label>
+        <div class="options">
+          <label><input type="radio" name="q9" value="0"> Never</label>
+          <label><input type="radio" name="q9" value="1"> Rarely</label>
+          <label><input type="radio" name="q9" value="2"> Sometimes</label>
+          <label><input type="radio" name="q9" value="3"> Often</label>
+          <label><input type="radio" name="q9" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question">
+        <label>10. How often do you feel isolated or withdrawn from social interactions?</label>
+        <div class="options">
+          <label><input type="radio" name="q10" value="0"> Never</label>
+          <label><input type="radio" name="q10" value="1"> Rarely</label>
+          <label><input type="radio" name="q10" value="2"> Sometimes</label>
+          <label><input type="radio" name="q10" value="3"> Often</label>
+          <label><input type="radio" name="q10" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 11 -->
+      <div class="question">
+        <label>11. Do you feel a sense of hopelessness or lack of motivation?</label>
+        <div class="options">
+          <label><input type="radio" name="q11" value="0"> Never</label>
+          <label><input type="radio" name="q11" value="1"> Rarely</label>
+          <label><input type="radio" name="q11" value="2"> Sometimes</label>
+          <label><input type="radio" name="q11" value="3"> Often</label>
+          <label><input type="radio" name="q11" value="4"> Always</label>
+        </div>
+      </div>
+
+      <!-- Question 12 -->
+      <div class="question">
+        <label>12. How often do you engage in relaxation activities (e.g., meditation, deep breathing, or hobbies) to manage stress?</label>
+        <div class="options">
+          <label><input type="radio" name="q12" value="0"> Never</label>
+          <label><input type="radio" name="q12" value="1"> Rarely</label>
+          <label><input type="radio" name="q12" value="2"> Sometimes</label>
+          <label><input type="radio" name="q12" value="3"> Often</label>
+          <label><input type="radio" name="q12" value="4"> Always</label>
+        </div>
+      </div>
+
+      <button type="button" onclick="calculateScore()">Submit</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    // Initialize jsPDF
+    const { jsPDF } = window.jspdf;
+
+    function calculateScore() {
+      const form = document.getElementById('mhaForm');
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      let totalScore = 0;
+
+      // Loop through all questions and calculate score
+      for (let i = 1; i <= 12; i++) {
+        const selectedOption = form.querySelector(`input[name="q${i}"]:checked`);
+        if (selectedOption) {
+          totalScore += parseInt(selectedOption.value, 10);
+        }
+      }
+
+      // Display result
+      const resultDiv = document.getElementById('result');
+      let resultText = `Your total score is: ${totalScore}\n`;
+
+      if (totalScore <= 10) {
+        resultText += "Low Stress – Normal coping abilities.";
+        resultDiv.className = "result low";
+      } else if (totalScore <= 20) {
+        resultText += "Mild Stress – Some signs of stress, but manageable.";
+        resultDiv.className = "result mild";
+      } else if (totalScore <= 30) {
+        resultText += "Moderate Stress – Noticeable stress impacting daily life.";
+        resultDiv.className = "result moderate";
+      } else if (totalScore <= 40) {
+        resultText += "High Stress – Significant impact on well-being; intervention recommended.";
+        resultDiv.className = "result high";
+      } else {
+        resultText += "Severe Stress – Consider seeking professional help.";
+        resultDiv.className = "result severe";
+      }
+
+      resultDiv.innerHTML = resultText.replace(/\n/g, "<br>");
+
+      // Generate PDF Report
+      const doc = new jsPDF();
+
+      // Add border
+      doc.setDrawColor(0); // Black border
+      doc.rect(5, 5, 200, 287); // A4 size border
+
+      // Add title
+      doc.setFontSize(22);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(6, 30, 58); // Dark blue color
+      doc.text("Mental Health Assessment Screening Report", 20, 20);
+
+      // Add user details
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(0, 0, 0); // Black color
+      doc.text(`Name: ${name}`, 20, 40);
+      doc.text(`Age: ${age}`, 20, 50);
+
+      // Add score and interpretation
+      doc.setFontSize(16);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(6, 30, 58); // Dark blue color
+      doc.text("Assessment Results", 20, 70);
+
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(0, 0, 0); // Black color
+      doc.text(`Total Score: ${totalScore}`, 20, 85);
+      doc.text(`Interpretation: ${resultText}`, 20, 95);
+
+      // Add recommendation
+      doc.setFontSize(16);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(6, 30, 58); // Dark blue color
+      doc.text("Recommendation", 20, 120);
+
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(0, 0, 0); // Black color
+      doc.text(
+        resultDiv.className.includes("severe") ? "Seek professional help immediately." : 
+        resultDiv.className.includes("high") ? "Consider professional intervention." : 
+        resultDiv.className.includes("moderate") ? "Explore stress management techniques." : 
+        resultDiv.className.includes("mild") ? "Manage stress with self-care." : 
+        "Continue healthy coping strategies.",
+        20,
+        130
+      );
+
+      // Save the PDF
+      doc.save(`MHA_Report_${name.replace(/ /g, '_')}.pdf`);
+    }
+  </script>
+  
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="mha.html">Tests</a></li>
+          <li><a href="#">Premium</a></li>
+          <li><a href="#">Accounts</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Information -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mindpal2025@gmail.com">mindpal2025@gmail.com</a></li>
+          <li><strong>Address: </strong> Ashram Building, GN-34/2, Sector – V, Saltlake Electronics Complex
+            Kolkata – 700 091, West Bengal, India</li>
+        </ul>
+      </div>
+  
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <a href="https://www.facebook.com/share/18nk7hRc8k/" target="_blank">
+          <img src="https://img.icons8.com/color/50/000000/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://x.com/mindpal2025" target="_blank">
+          <img src="https://img.icons8.com/color/50/000000/twitter.png" alt="Twitter">
+      </a>
+      <a href="https://www.instagram.com/mindpal2025?igsh=MWU0OHd4cDQ5dWp4dw==" target="_blank">
+          <img src="https://img.icons8.com/color/50/000000/instagram-new.png" alt="Instagram">
+      </a>
+      <a href="https://www.linkedin.com/company/mindpal1/" target="_blank">
+          <img src="https://img.icons8.com/color/50/000000/linkedin.png" alt="LinkedIn">
+      </a>
+      
+      </div>
+  
+      <!-- Newsletter Subscription -->
+      <div class="footer-section">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Copyright Notice -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 MindPal. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <style>
+    /* Footer Styling */
+    .footer {
+      background-color: #1a1a1a;
+      width: 100%;
+      color: #ecf0f1;
+      padding: 40px 20px;
+      margin-top: 60px;
+      
+    }
+  
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+  
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 20px;
+    }
+  
+    .footer-section h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #fefff6;
+    }
+  
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+  
+    .footer-section ul li a {
+      color: #ecf0f1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+  
+    .footer-section ul li a:hover {
+      color: #3498db;
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+  
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+    }
+  
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+  
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+    }
+  
+    .newsletter-form input {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      flex: 1;
+    }
+  
+    .newsletter-form button {
+      background-color: #3498db;
+      border: none;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .newsletter-form button:hover {
+      background-color: #2980b9;
+    }
+  
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      font-size: 14px;
+      color: #bdc3c7;
+    }
+  </style>
+
+</body>
+
+</html>
+
+</body>
+</html>
