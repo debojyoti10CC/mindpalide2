@@ -3,14 +3,15 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, Go
 
 // Firebase Configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDY8hbCpvq-9NMWB-qHjgPZKFdKzXLg6M4",
-    authDomain: "mindpal-68ea7.firebaseapp.com",
-    projectId: "mindpal-68ea7",
-    storageBucket: "mindpal-68ea7.appspot.com",
-    messagingSenderId: "1040500833429",
-    appId: "1:1040500833429:web:4dd4d5b49eb6cc12226f9c",
-    measurementId: "G-VKN997NWCQ"
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
